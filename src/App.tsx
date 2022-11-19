@@ -1,23 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import MovieService from "./services/movies.service";
+
+type Movie = {
+  id: string;
+  titulo: string;
+};
 
 function App() {
+  const [movies, setMovies] = useState<Movie[]>();
+
+  const handleOnClick = async () => {
+    const movieService = new MovieService();
+
+    const movies = await movieService
+      .findAllMovies()
+      .then((response) => response.data);
+
+    setMovies(movies);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={() => handleOnClick()}>Mostrar filmes</button>
+        {movies && (
+          <ul>
+            {movies.map((movie) => (
+              <li>{movie.titulo}</li>
+            ))}
+          </ul>
+        )}
       </header>
     </div>
   );
