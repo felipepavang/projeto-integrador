@@ -4,11 +4,21 @@ type ImageProps = {
   movieId?: string;
 };
 
-export const Container = styled.div`
+export const Container = styled.a`
   box-sizing: border-box;
   display: flex;
   width: 100%;
   margin: 48px 0px;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    color: #000000;
+    text-decoration: none;
+  }
 `;
 
 export const MovieCover = styled.div<ImageProps>`

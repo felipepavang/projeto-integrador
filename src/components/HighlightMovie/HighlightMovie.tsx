@@ -29,7 +29,7 @@ const HighlightMovie: React.FC<MovieProps> = ({
   director,
 }) => {
   return (
-    <Container>
+    <Container href={`/filme/${movieId}`}>
       <MovieCover movieId={movieId} />
       <DataContainer>
         <MovieTitle>{title}</MovieTitle>

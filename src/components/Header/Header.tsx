@@ -16,7 +16,6 @@ const Header: React.FC = () => {
         </Logo>
         <LinkContainer>
           <StyledLink to={"/"}>Início</StyledLink>
-          <StyledLink to={"/about"}>Sobre</StyledLink>
         </LinkContainer>
       </ScreenContainer>
     </HeaderContainer>
