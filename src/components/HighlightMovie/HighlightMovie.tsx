@@ -12,12 +12,12 @@ import {
 } from "./styles";
 
 type MovieProps = {
-  movieId: string;
-  title: string;
-  description: string;
-  releaseYear: string;
-  category: string;
-  director: string;
+  movieId?: string;
+  title?: string;
+  description?: string;
+  releaseYear?: string;
+  category?: string;
+  director?: string;
 };
 
 const HighlightMovie: React.FC<MovieProps> = ({

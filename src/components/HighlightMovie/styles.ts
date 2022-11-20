@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 type ImageProps = {
-  movieId: string;
+  movieId?: string;
 };
 
 export const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   width: 100%;
-  padding: 16px;
-
-  background-color: aliceblue;
+  margin: 48px 0px;
 `;
 
 export const MovieCover = styled.div<ImageProps>`
@@ -36,7 +34,7 @@ export const MovieTitle = styled.h1`
 
 export const MovieDescription = styled.p`
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;
