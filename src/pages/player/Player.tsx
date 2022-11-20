@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "../../components/Header/Header";
+import { ScreenContainer } from "./styles";
 
 const PlayerScreen: React.FC = () => {
-  return <div>Player Screen</div>;
+  return (
+    <>
+      <Header />
+      <ScreenContainer></ScreenContainer>
+    </>
+  );
 };
 
 export default PlayerScreen;
