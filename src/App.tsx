@@ -1,38 +1,16 @@
-import React, { useState } from "react";
-import "./App.css";
-import MovieService from "./services/movies.service";
-
-type Movie = {
-  id: string;
-  titulo: string;
-};
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomeScreen from "./pages/home/Home";
+import PlayerScreen from "./pages/player/Player";
 
 function App() {
-  const [movies, setMovies] = useState<Movie[]>();
-
-  const handleOnClick = async () => {
-    const movieService = new MovieService();
-
-    const movies = await movieService
-      .findAllMovies()
-      .then((response) => response.data);
-
-    setMovies(movies);
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={() => handleOnClick()}>Mostrar filmes</button>
-        {movies && (
-          <ul>
-            {movies.map((movie) => (
-              <li>{movie.titulo}</li>
-            ))}
-          </ul>
-        )}
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/player/:movieId" element={<PlayerScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
