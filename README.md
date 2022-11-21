@@ -22,3 +22,11 @@ Para rodar o projeto, basta realizar os seguintes passos:
 - `npm start`: para iniciar a aplicação localmente.
 
 OBS: é importante se certificar de que os dois projetos estejam inicializados ao mesmo tempo, para que haja comunicação entre eles. O projeto front-end inicializará no endereço `localhost:3001` e a API no endereço `localhost:3000`.
+
+## Tecnologias
+
+- Typescript
+- React
+- React-router
+- Styled-components
+- Lodash
