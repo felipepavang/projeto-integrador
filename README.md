@@ -2,6 +2,14 @@
 
 Atividade realizada para cumprimento de requisito da matéria de Projeto Integrador do 4º semestre do curso de Sistemas para Internet. 
 
+## GRUPO 02 - Integrantes
+
+Felipe Pavan Guedes
+João Ferreira de Lima Junior
+Jean Luc Bonnet
+Jessica Aparecida Carvalho
+Julia Silveira de Souza
+
 ## Sobre
 
 O projeto é um protótipo de uma aplicação de filmes alternativos, na qual é possível encontrar filmes independentes reunidos em uma só plataforma.
