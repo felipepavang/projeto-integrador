@@ -4,11 +4,11 @@ Atividade realizada para cumprimento de requisito da matéria de Projeto Integra
 
 ## GRUPO 02 - Integrantes
 
-Felipe Pavan Guedes
-João Ferreira de Lima Junior
-Jean Luc Bonnet
-Jessica Aparecida Carvalho
-Julia Silveira de Souza
+- Felipe Pavan Guedes
+- João Ferreira de Lima Junior
+- Jean Luc Bonnet
+- Jessica Aparecida Carvalho
+- Julia Silveira de Souza
 
 ## Sobre
 
