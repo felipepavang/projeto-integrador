@@ -12,10 +12,11 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <ScreenContainer>
         <Logo>
-          <StyledLink to={"/"}>Logo</StyledLink>
+          <StyledLink to={"/"}>CineAlt</StyledLink>
         </Logo>
         <LinkContainer>
-          <StyledLink to={"/"}>Início</StyledLink>
+          <StyledLink to={"/"}>INÍCIO</StyledLink>
+          <StyledLink to={"/register-movie"}>CADASTRE UM FILME</StyledLink>
         </LinkContainer>
       </ScreenContainer>
     </HeaderContainer>
