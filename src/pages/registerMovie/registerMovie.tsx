@@ -18,7 +18,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import InputMask from "react-input-mask";
-import { http } from "../../utils/http-common";
+import { useNavigate } from 'react-router-dom';
 
 type FormDataProps = {
   titulo: string;
@@ -32,9 +32,7 @@ type FormDataProps = {
 const schema = yup.object().shape({
   titulo: yup.string().required("O nome é obrigatório"),
   generos: yup.string().required("O gênero é obrigatório"),
-  ano: yup
-    .string()
-    .required("O ano é obrigatório"),
+  ano: yup.string().required("O ano é obrigatório"),
   diretor: yup.string().required("O diretor é obrigatório"),
   link: yup.string().required("O link é obrigatório"),
   sinopse: yup.string().required("A sinopse é obrigatório"),
@@ -50,17 +48,54 @@ const RegisterMovieScreen: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data: FormDataProps) => {
+  const navigate = useNavigate();
+
+  const cadastrarFilem = async (data: FormDataProps) => {
     console.log(data);
     setIsLoading(true);
-    try {
-      const response = await http.post("/filme", data);
-      console.log('retorno da api', response)
-    } catch (error) {
-      console.log('retorno da error', error)
-    }finally {
-      setIsLoading(false)
-    }
+
+    const arrayGeneros = data.generos;
+    const novoGeneros = arrayGeneros.split(",").map((item: any) => item.trim());
+
+    const arrayDiretor = data.diretor;
+    const novoDiretores = arrayDiretor
+      .split(",")
+      .map((item: any) => item.trim());
+
+    const novoDadosFilmes = {
+      link: data.link,
+      titulo: data.titulo,
+      sinopse: data.sinopse,
+      ano: data.ano,
+      direcao: [...novoDiretores],
+      generos: [...novoGeneros],
+      id_produtora: 1,
+    };
+    console.log(
+      "🚀 ~ file: registerMovie.tsx:68 ~ onSubmit ~ teste:",
+      novoDadosFilmes
+    );
+
+    const url = "http://localhost:3000/api/filme";
+   
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(novoDadosFilmes),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Resposta da API:", result);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      }).finally(() => {
+        setIsLoading(false);
+      })
   };
 
   return (
@@ -69,7 +104,7 @@ const RegisterMovieScreen: React.FC = () => {
       <ScreenContainer>
         <BoxContainer>
           <RegisterTitle>Cadastre um filme</RegisterTitle>
-          <RegisterForm onSubmit={handleSubmit(onSubmit)}>
+          <RegisterForm onSubmit={handleSubmit(cadastrarFilem)}>
             <RegisterFormLabel>Título</RegisterFormLabel>
             <Controller
               control={control}
@@ -177,8 +212,11 @@ const RegisterMovieScreen: React.FC = () => {
                 </>
               )}
             />
-            { isLoading ?  <RegisterFormButtton disabled>SALVANDO...</RegisterFormButtton>  :  <RegisterFormButtton>CADASTRAR</RegisterFormButtton>}
-
+            {isLoading ? (
+              <RegisterFormButtton disabled>SALVANDO...</RegisterFormButtton>
+            ) : (
+              <RegisterFormButtton>CADASTRAR</RegisterFormButtton>
+            )}
           </RegisterForm>
         </BoxContainer>
       </ScreenContainer>

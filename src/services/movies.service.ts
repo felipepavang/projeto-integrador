@@ -8,4 +8,5 @@ export default class MovieService {
   findMovieById(id: string) {
     return http.get(`/filme/${id}`);
   }
+
 }
