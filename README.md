@@ -1,6 +1,6 @@
 # Projeto Integrador Senac
 
-Atividade realizada para cumprimento de requisito da matéria de Projeto Integrador do 4º semestre do curso de Sistemas para Internet. 
+Atividade realizada para cumprimento de requisito da matéria de Projeto Integrador do 5º semestre do curso de Sistemas para Internet. 
 
 ## GRUPO 02 - Integrantes
 
@@ -12,11 +12,11 @@ Atividade realizada para cumprimento de requisito da matéria de Projeto Integra
 
 ## Sobre
 
-O projeto é um protótipo de uma aplicação de filmes alternativos, na qual é possível encontrar filmes independentes reunidos em uma só plataforma.
+O projeto é um protótipo de uma aplicação de filmes alternativos, na qual é possível encontrar filmes independentes reunidos em uma só plataforma e também cadastrar seu filme com informações como Gênero, Diretores, Sinopse e o link do filme dentro da plataforma YouTube.
 
 ## Como rodar o projeto
 
-O projeto consiste em dois repositórios, este e nossa [API de Filmes](https://github.com/LucBonnet/APIfilmes) com um banco de dados mockado em JSON. 
+O projeto consiste em dois repositórios, este e nossa [API de Filmes](https://github.com/LucBonnet/APIfilmes) com um banco de dados. 
 Para rodar o projeto, basta realizar os seguintes passos:
 - `npm i`: para instalar as dependências nos dois projetos.
 - `npm start`: para iniciar a aplicação localmente.
